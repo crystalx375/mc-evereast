@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evereast</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Montserrat, sans-serif;
+        background: #f0ebe1;
+        color: #111;
+    }
+
+    .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    padding: 8px 30px;
+    z-index: 1000;
+    box-sizing: border-box;
+    }
+
+	.nav-left {
+		display: flex;
+		align-items: center;
+	}
+	.nav-right {
+		display: flex;
+		align-items: center;
+		margin-left: auto; 
+	}
+	.navbar a {
+		color: white;
+		text-decoration: none;
+		margin: 0 15px;
+		font-weight: bold;
+		display: flex;
+		align-items: center;
+	}
+	.nav-right a {
+		margin-right: 0;
+	}
+    .navbar a:hover {
+        text-decoration: underline;
+    }
+    .nav-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 6px;
+    }
+    .spacer {
+        height: 20px;
+    }
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #0077ff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+    .btn:hover {
+        background: #005bcc;
+    }
+    .footer {
+        text-align: center;
+        margin-top: 100px;
+		margin-bottom: 40px;
+        background: #white;
+        color: white;
+    }
+    .footer-text {
+        background: rgba(0, 0, 0, 0.6);
+        padding: 20px;
+        border-radius: 10px;
+        display: inline-block;
+    }
+	.container {
+		max-width: 900px;
+		margin-left: 100px;
+	}
+    .container_first {
+      padding: 30px;
+      margin-bottom: -20px;
+    }
+	.container_link; {
+	}
+	.container_second {
+      padding: 30px;
+      margin-bottom: -20px;
+    }
+	.container_final {
+      padding: 30px;
+      margin-bottom: -20px;
+    }
+	.container-copy {
+	}
+	.container-download-copy {
+		margin-top: 4px;
+	}
+	.copy-box {
+		display: inline-block;
+		background: #36373b;
+		color: #edf0ff;
+		padding: 8px 12px;
+		border: 2px solid gray;
+		border-radius: 5px;
+		margin-top: 8px;
+		font-size: 14px;
+		white-space: nowrap; 
+	}
+
+	.copy-btn {
+		display: inline-block;
+		margin-top: 6px;
+		padding: 6px 12px;
+		background: #0077ff;
+		border: none;
+		color: white;
+		cursor: pointer;
+		border-radius: 4px;
+	}
+	.download-btn {
+		margin-top: 6px;
+		padding: 2px 7px;
+		background: #0077ff;
+		border: none;
+		color: white;
+		cursor: pointer;
+		border-radius: 4px;
+		white-space: nowrap; 
+	}
+	.copy-btn:hover {
+		background: #005bcc;
+	}
+	.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(40, 167, 69, 0.95);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+	}
+	.toast.show {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	.crystal {
+	margin-top: 40px
+	font-size: 20px;
+    text-align: center;
+	color: #b3b7bd;
+	}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+	<div class="nav-left">
+		<a href="index.html"><img src="images/sourse/top.png" alt="Главная" class="nav-icon">Главная</a>
+		<a href="downloads/mods.zip" download><img src="images/sourse/mods.png" class="nav-icon">Mods</a>
+		<a href="zrok.html"><img src="images/sourse/zrok.png" class="nav-icon">Zrok</a>
+		<a href="Resourse_packs.html"><img src="images/sourse/resourse_packs.png" class="nav-icon">Resourse_packs</a>
+	</div>
+    <div class="nav-right">
+        <a href="othersite.html"><img src="images/everhack/lite_everhack.png" class="nav-icon">Everhack</a>
+    </div>
+</div>
+<div class="spacer" id="top"></div>
+<div class="container_first">
+	<h3>Гайд создан 14.08.2025</h3> <p> Могут быть неточности в будущем времени</p>
+	<p>
+		Возможно, будет уже полная рабочая программа (.exe) от <a href="https://discord.com/users/626700371892371457" class="container_link">santik</a>,которая будет делать все практически автоматически, вам нужно будет только зарегистрироваться, написать токен и скинуть свою почту хосту. Обращайтесь к нему за программой 
+	</p>
+	<p>Или читайте гайд по установке</p>
+    <h1>1. Скачивание zrok и его настройка</h1>
+    <p>
+      1. Заходите на сайт <a href="https://docs.zrok.io/docs/guides/install/" class="container_link">zrok.io</a> и скачиваете программу ИЛИ скачиваете последнюю версию с <a href="https://github.com/openziti/zrok/releases" class="container_link">github</a> выбрав СВОЮ ОС. При необходимости зарегистрируетесь. Расположите папку с zrok где вам удобно. 
+	</p>
+	<h5>P.S При дальнейшей настройке понадобится почта, которая будет у хоста-Evereast, также потребуется регистрация на сайте и взятие токена с сайта</h5>
+	<p>
+	  2. Заходите на сайт
+	  <a href="https://api-v1.zrok.io/" class="container_link">zrok.api</a>
+	  и копируете свой токен как на фото снизу. При необходимости регистрируетесь/входите в аккаунт
+	</p>
+	<div class="container"><img src="images/zrok/token.png" alt="token"></div>
+    <p>
+      3. Будем запускать zrok. Для этого введите в проводнике где папка с zrok.exe - cmd - как на фото снизу
+    </p>
+	<div class="container"><img src="images/zrok/cmd.png" alt="cmd"></div>
+	
+    <p> После пишем zrok enable 'ваш токен', пример - zrok enable O8abVnfaE1    </p>
+    <div class="copy-box">
+			<code id="textToCopy">zrok enable</code>
+		</div>
+		<button class="copy-btn" onclick="copyText('textToCopy')">Скопировать</button>
+	<h4> Обязательно! На этом этапе уже кидаете свою почту, на которой зарегистрирован аккаунт zrok</h4>
+
+		<a href="https://docs.zrok.io/docs/guides/permission-modes/" class="container_link">Вы не сможете создать туннель в zrok если у хоста не будет вашей почты</a>
+</div>
+
+<div class="container_second">
+    <h1>2. Подключение туннеля для zrok</h1>
+		<p>1. Есть несколько возможностей использовать команды для подключения:</p>
+
+	<p>1.1 Не предпочтительный способ через запуск cmd и ввод команды (для Minecraft) (Работает в терминале на Linux):</p>
+			<div class="copy-box">
+				<code id="textToCopy2">zrok.exe access private ever --bind 127.0.0.1:25565</code>
+			</div>
+			<button class="copy-btn" onclick="copyText('textToCopy2')">Скопировать</button>
+
+		<p>И команда для войс-чата:</p>
+			<div class="copy-box">
+				<code id="textToCopy3">zrok.exe access private everudp --bind 127.0.0.1:25565</code>
+			</div>
+			<button class="copy-btn" onclick="copyText('textToCopy3')">Скопировать</button>
+
+		<h5>P.S. При двух подключениях нужно писать в 2 разные cmd!!!</h5>
+	<p>1.2 Наиболее легкий способ для Windows: </p>
+		<p>Скачиваете .bat файл с такой командой или копируете и делаете сами .bat:</p>
+<div class="copy-box">
+<pre id="multiLineText">
+@echo off
+start cmd /k "zrok.exe access private ever --bind 127.0.0.1:25565 && pause"
+start cmd /k "zrok.exe access private everudp --bind 127.0.0.1:25565 && pause"
+</pre>
+</div>
+	<div class="container-download-copy">
+		<button class="download-btn">
+	<a href="downloads/zrok.bat" class="btn" download>Скачать</a>
+</div>
+		<div class="container-copy">
+	<button class="copy-btn" onclick="copyMultiLine()">Скопировать</button>
+	<script>
+		async function copyMultiLine() {
+			const text = document.getElementById("multiLineText").innerText;
+			try {
+			await navigator.clipboard.writeText(text);
+			showToast("Текст скопирован!");
+			} catch (err) {
+				console.error('Не удалось скопировать текст: ', err);
+			}
+				}
+		function showToast(message, isError = false) {
+			const toast = document.getElementById("toast");
+			toast.textContent = message;
+			toast.style.background = isError ? "rgba(220,53,69,0.95)" : "rgba(40,167,69,0.95)";
+			toast.classList.add("show");
+			setTimeout(() => {
+				toast.classList.remove("show");
+			}, 2000);
+		}
+	</script>
+</div>
+
+<div class="container-final">
+	<p>Если вы захотите запустить zrok просто запускайте .bat файл и 2 подключения будут автоматически созданы</p>
+	<h3>FAQ</h3>
+	<p>Когда запускать zrok?</p>
+	<p>-Тогда, когда Evereast напишет что он запустил сервер</p>
+	<p>Что будет если запустить раньше?</p>
+	<p>-Не призойдет подключение туннеля и надо будет перезапускать, так так zrok не проверят есть ли соединение и не будет пробовать переподключаться</p>
+	<p>Почему я должен включать неизвестные программы у себя?</p>
+	<p>-У нас тут все open-sourse, вы сами можете просмотреть код, проверить по virustotal и тп, а нужно все это для соединения, так как у нас нету белого ip</p>
+<div>
+	<div id="toast" class="toast">Текст скопирован!</div>
+<div class="footer">
+    <div class="footer-text">
+        <p>Наш Discord</p>
+        <a href="https://discord.gg/fmve9eXpHh" class="btn">Перейти в Discord</a>
+    </div>
+</div>
+<div class="crystal">
+	<h4>2025 - Crystal</h4>
+	<p>License  "All rights not reserved"</p>
+	<p>Делаете всё что хотите</p>
+<div>
+</body>
+<script>
+async function copyText(id) {
+    const text = document.getElementById(id).innerText;
+    try {
+        await navigator.clipboard.writeText(text);
+        showToast("Текст скопирован!");
+    } catch (err) {
+        console.error('Не удалось скопировать текст: ', err);
+        showToast("Ошибка копирования!", true);
+    }
+}
+
+function showToast(message, isError = false) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.style.background = isError ? "rgba(220,53,69,0.95)" : "rgba(40,167,69,0.95)";
+    toast.classList.add("show");
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2000);
+}
+</script>
+</html>
