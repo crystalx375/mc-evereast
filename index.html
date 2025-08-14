@@ -15,7 +15,7 @@
 		position: fixed;
 		width: 130px;
 		opacity: 0;
-		transition: opacity 1.5s ease, transform 1.5s ease;
+		transition: opacity 2s ease, transform 1s ease;
 		z-index: 5;              
 		pointer-events: none;    
 		will-change: transform;
@@ -422,10 +422,39 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
+(function() {
+    let targetScroll = window.scrollY; 
+    let currentScroll = window.scrollY; 
+    let isScrolling = false;
+
+
+    const ease = 0.08;
+    const wheelSpeed = 0.7;
+
+
+    window.addEventListener("wheel", (e) => {
+        targetScroll += e.deltaY * wheelSpeed; 
+        targetScroll = Math.max(0, Math.min(targetScroll, document.body.scrollHeight - window.innerHeight)); // границы
+        if (!isScrolling) updateScroll();
+    }, { passive: false });
+
+    function updateScroll() {
+        isScrolling = true;
+        currentScroll += (targetScroll - currentScroll) * ease;
+        window.scrollTo(0, currentScroll);
+
+        if (Math.abs(targetScroll - currentScroll) > 0.8) {
+            requestAnimationFrame(updateScroll);
+        } else {
+            isScrolling = false;
+        }
+    }
+})();
 showSlide(currentSlide);
 </script>
 
 </html>
+
 
 
 
