@@ -14,8 +14,8 @@
 	.decor {
 		position: fixed;
 		width: 130px;
-		opacity: 1;
-		transition: opacity 1s ease, transform 1s ease;
+		opacity: 0;
+		transition: opacity 1.5s ease, transform 1.5s ease;
 		z-index: 5;              
 		pointer-events: none;    
 		will-change: transform;
@@ -267,7 +267,7 @@ const decors = document.querySelectorAll('.decor');
 window.addEventListener('load', () => {
     setTimeout(() => {
         decors.forEach(el => el.classList.add('show'));
-    }, 300);
+    }, 200);
 });
 
 
@@ -426,6 +426,7 @@ showSlide(currentSlide);
 </script>
 
 </html>
+
 
 
 
