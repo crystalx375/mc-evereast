@@ -11,6 +11,19 @@
         background: #111;
         color: white;
     }
+	.decor {
+		position: fixed;
+		width: 130px;
+		opacity: 1;
+		transition: opacity 1s ease, transform 1s ease;
+		z-index: 5;              
+		pointer-events: none;    
+		will-change: transform;
+		backface-visibility: hidden;
+	}
+	.decor.show { opacity: 1; }
+	.decor-left  { left: 100px; }
+	.decor-right { right: 100px; }
 
     .navbar {
     position: fixed;
@@ -239,7 +252,34 @@
 </head>
 <body>
 
+<img src="images/decor/1.png" class="decor decor-left" style="top: 21%;" data-speed="0.17" data-rotate="35">
+<img src="images/decor/1.png" class="decor decor-left" style="top: 40%;" data-speed="0.21" data-rotate="50">
+<img src="images/decor/1.png" class="decor decor-left" style="top: 70%;" data-speed="0.28" data-rotate="60">
 
+
+<img src="images/decor/1.png" class="decor decor-right" style="top: 25%;" data-speed="0.15" data-rotate="-40">
+<img src="images/decor/1.png" class="decor decor-right" style="top: 41%;" data-speed="0.22"  data-rotate="-55">
+<img src="images/decor/1.png" class="decor decor-right" style="top: 72%;" data-speed="0.27"  data-rotate="-65">
+<script>
+const decors = document.querySelectorAll('.decor');
+
+
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        decors.forEach(el => el.classList.add('show'));
+    }, 300);
+});
+
+
+window.addEventListener('scroll', () => {
+    const offset = window.scrollY;
+    decors.forEach(el => {
+        const speed = parseFloat(el.dataset.speed);
+        const baseRotate = parseFloat(el.dataset.rotate);
+        el.style.transform = `translateY(${offset * speed}px) rotate(${baseRotate + offset * speed * 1}deg)`;
+    });
+});
+</script>
 <div class="navbar">
 	<div class="nav-left">
 		<a href="#top"><img src="images/sourse/top.png" alt="Главная" class="nav-icon">Главная</a>
@@ -386,6 +426,7 @@ showSlide(currentSlide);
 </script>
 
 </html>
+
 
 
 
