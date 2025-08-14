@@ -262,16 +262,14 @@
 <img src="images/decor/1.png" class="decor decor-right" style="top: 72%;" data-speed="0.27"  data-rotate="-65">
 <script>
 const decors = document.querySelectorAll('.decor');
-
-
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        decors.forEach(el => el.classList.add('show'));
-    }, 200);
-});
-
+let decorShown = false;
 
 window.addEventListener('scroll', () => {
+    if (!decorShown) {
+        decorShown = true;
+        decors.forEach(el => el.classList.add('show'));
+    }
+
     const offset = window.scrollY;
     decors.forEach(el => {
         const speed = parseFloat(el.dataset.speed);
@@ -454,6 +452,7 @@ showSlide(currentSlide);
 </script>
 
 </html>
+
 
 
 
