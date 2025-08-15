@@ -21,15 +21,17 @@
 		will-change: transform;
 		backface-visibility: hidden;
 	}
-@media (max-width: 1300px) {
-	.decor {
-        display: none !important;	
-	}
-}	
 	.decor.show { opacity: 1; }
-	.decor-left  { left: 100px; }
-	.decor-right { right: 100px; }
-
+@keyframes fall {
+		0% {
+			transform: translateY(-100px) rotate(0deg);
+			opacity: 1;
+		}
+		100% {
+			transform: translateY(100vh) rotate(360deg);
+			opacity: 0;
+		}
+	}
     .navbar {
     position: fixed;
     top: 0;
@@ -168,106 +170,154 @@
         border-radius: 10px;
         display: inline-block;
     }
-.slider-container {
-    position: relative;
-    max-width: 1200px;
-    margin: 50px auto;
-    overflow: hidden;
-    border-radius: 10px;
-}
-
-.slider {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.slide {
-    min-width: 100%;
-    height: 50vh;
-    flex-shrink: 0;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-
-.dots {
-    text-align: center;
-    position: absolute;
-    bottom: 15px;
-    width: 100%;
-}
-
-.dot {
-    height: 12px;
-    width: 12px;
-    margin: 0 5px;
-    background-color: rgba(255,255,255,0.6);
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-.dot.active {
-    background-color: white;
-}
-
-
-.arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: white;
-    font-size: 30px;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-    z-index: 20;
-    transition: background 0.3s;
-}
-.arrow:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
-.arrow.left {
-    left: 10px;
-}
-.arrow.right {
-    right: 10px;
-}
-
-@media (max-width: 768px) {
-    .slide {
-        height: 35vh;
-    }
-}
+	.slider-container {
+	    position: relative;
+	    max-width: 1200px;
+	    margin: 50px auto;
+	    overflow: hidden;
+	    border-radius: 10px;
+	}
+	
+	.slider {
+	    display: flex;
+	    transition: transform 0.5s ease-in-out;
+	}
+	
+	.slide {
+	    min-width: 100%;
+	    height: 50vh;
+	    flex-shrink: 0;
+	}
+	
+	.slide img {
+	    width: 100%;
+	    height: 100%;
+	    object-fit: cover;
+	    display: block;
+	}
+	
+	
+	.dots {
+	    text-align: center;
+	    position: absolute;
+	    bottom: 15px;
+	    width: 100%;
+	}
+	
+	.dot {
+	    height: 12px;
+	    width: 12px;
+	    margin: 0 5px;
+	    background-color: rgba(255,255,255,0.6);
+	    border-radius: 50%;
+	    display: inline-block;
+	    cursor: pointer;
+	    transition: background-color 0.3s;
+	}
+	.dot.active {
+	    background-color: white;
+	}
+	
+	
+	.arrow {
+	    position: absolute;
+	    top: 50%;
+	    transform: translateY(-50%);
+	    background: rgba(0, 0, 0, 0.5);
+	    border: none;
+	    color: white;
+	    font-size: 30px;
+	    padding: 10px;
+	    cursor: pointer;
+	    border-radius: 50%;
+	    z-index: 20;
+	    transition: background 0.3s;
+	}
+	.arrow:hover {
+	    background: rgba(0, 0, 0, 0.8);
+	}
+	.arrow.left {
+	    left: 10px;
+	}
+	.arrow.right {
+	    right: 10px;
+	}
+	
+	@media (max-width: 768px) {
+	    .slide {
+	        height: 35vh;
+	    }
+	}
 .crystal {
 	margin-top: 40px
 	font-size: 20px;
     text-align: center;
 	color: #b3b7bd;
 }
-	
+.decor-btn {
+    padding: 12px 20px;
+    background: linear-gradient(45deg, #111111, #222222);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+	margin-bottom: 40px;
+}
+
+.decor-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+.decor-btn:active {
+    transform: scale(0.95);
+}
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+	width: clamp(0px, 5vw, 150px);
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+body::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.5), transparent);
+}
+
+body::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(0,0,0,0.5), transparent);
+}
+@media (max-width: 1100px) {
+    body::before,
+    body::after {
+        display: none;
+    }
+}
+	.reveal {
+	  opacity: 0;
+	  transform: translateY(20px);
+	  transition: opacity .7s ease, transform .7s ease;
+	}
+	.reveal.show {
+	  opacity: 1;
+	  transform: translateY(0);
+	}	
 </style>
 </head>
 <body>
-
-<img src="images/decor/1.png" class="decor decor-left" style="top: 21%;" data-speed="0.17" data-rotate="35">
-<img src="images/decor/2.png" class="decor decor-left" style="top: 40%;" data-speed="0.21" data-rotate="50">
-<img src="images/decor/2.png" class="decor decor-left" style="top: 70%;" data-speed="0.28" data-rotate="60">
-
-
-<img src="images/decor/2.png" class="decor decor-right" style="top: 25%;" data-speed="0.15" data-rotate="-40">
-<img src="images/decor/2.png" class="decor decor-right" style="top: 41%;" data-speed="0.22"  data-rotate="-55">
-<img src="images/decor/1.png" class="decor decor-right" style="top: 72%;" data-speed="0.27"  data-rotate="-65">
 <script>
 const decors = document.querySelectorAll('.decor');
 let decorShown = false;
+
 
 window.addEventListener('scroll', () => {
     if (!decorShown) {
@@ -279,9 +329,60 @@ window.addEventListener('scroll', () => {
     decors.forEach(el => {
         const speed = parseFloat(el.dataset.speed);
         const baseRotate = parseFloat(el.dataset.rotate);
-        el.style.transform = `translateY(${offset * speed}px) rotate(${baseRotate + offset * speed * 1}deg)`;
+        el.style.transform = `translateY(${offset * speed}px) rotate(${baseRotate + offset * speed}deg)`;
     });
 });
+
+const decorImages = [
+    'images/decor/1.png',
+    'images/decor/2.png',
+    'images/decor/3.png'
+];
+
+window.addEventListener('scroll', () => {
+    if (!decorShown) {
+        decorShown = true;
+        decors.forEach(el => el.classList.add('show'));
+    }
+
+    const offset = window.scrollY;
+    decors.forEach(el => {
+        const speed = parseFloat(el.dataset.speed);
+        const baseRotate = parseFloat(el.dataset.rotate);
+        el.style.transform = `translateY(${offset * speed}px) rotate(${baseRotate + offset * speed}deg)`;
+    });
+});
+
+function spawnDecorRain() {
+    for (let i = 0; i < 10; i++) {
+        let drop = document.createElement('img');
+        
+        drop.src = decorImages[Math.floor(Math.random() * decorImages.length)];
+
+        drop.style.position = 'fixed';
+        drop.style.left = Math.random() * window.innerWidth + 'px';
+        drop.style.top = '-100px';
+        drop.style.width = '80px';
+        drop.style.animation = 'fall 3s linear forwards';
+        drop.style.zIndex = '9999';
+        document.body.appendChild(drop);
+        
+        setTimeout(() => {
+            drop.remove();
+        }, 3000);
+    }
+}
+
+function startDecorRain() {
+    let cycles = 0;
+    const rainInterval = setInterval(() => {
+        spawnDecorRain();
+        cycles++;
+        if (cycles >= 6) {
+            clearInterval(rainInterval);
+        }
+    }, 1000);
+}
 </script>
 <div class="navbar">
 	<div class="nav-left">
@@ -306,13 +407,13 @@ window.addEventListener('scroll', () => {
 </div>
 
 
-<div class="container">
+<div class="container reveal" style="--delay:0ms">
     <h2>Добро пожаловать!</h2>
     <p>Здесь вы найдете полезные материалы и файлы для скачивания. Всё, что вам нужно — ниже.</p>
 </div>
 
 
-<div class="content">
+<div class="content reveal" style="--delay:250ms">
     <div class="downloads">
         <div class="download-item" id="mods">
             <h3>Mods</h3>
@@ -364,8 +465,22 @@ window.addEventListener('scroll', () => {
 	<p>License  "All rights not reserved"</p>
 	<p>Делаете всё что хотите</p>
 <div>
+
+<div style="position:center; bottom:20px; right:20px; z-index:999;">
+    <button class="decor-btn" onclick="startDecorRain()">Pelmeni</button>
+</div>
 </body>
 <script>
+window.addEventListener('scroll', () => {
+  document.querySelectorAll('.reveal').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.85) {
+      el.classList.add('show');
+    }
+  });
+});
+
+
 let currentSlide = 0;
 const slides = document.querySelectorAll(".slide");
 const dots = document.querySelectorAll(".dot");
@@ -457,6 +572,7 @@ showSlide(currentSlide);
 </script>
 
 </html>
+
 
 
 
