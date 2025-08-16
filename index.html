@@ -312,7 +312,7 @@ body::after {
 	.reveal.show {
 	  opacity: 1;
 	  transform: translateY(0);
-	}	
+	}
 </style>
 </head>
 <body>
@@ -542,6 +542,8 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
+showSlide(currentSlide);
+
 (function() {
     let targetScroll = window.scrollY; 
     let currentScroll = window.scrollY; 
@@ -572,22 +574,4 @@ document.addEventListener("keydown", (event) => {
 })();
 showSlide(currentSlide);
 </script>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
