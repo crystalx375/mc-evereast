@@ -241,6 +241,8 @@ start cmd /k "zrok.exe access private everudp --bind 127.0.0.1:25565 && pause"
 </div>
 		<div class="container-copy">
 	<button class="copy-btn" onclick="copyMultiLine()">Скопировать</button>
+</div>
+	<p>Если вы захотите запустить zrok просто запускайте .bat файл и 2 подключения будут автоматически созданы</p>
 	<script>
 		async function copyMultiLine() {
 			const text = document.getElementById("multiLineText").innerText;
@@ -262,9 +264,7 @@ start cmd /k "zrok.exe access private everudp --bind 127.0.0.1:25565 && pause"
 		}
 	</script>
 </div>
-</div>
 <div class="container_final">
-	<p>Если вы захотите запустить zrok просто запускайте .bat файл и 2 подключения будут автоматически созданы</p>
 	<h3>FAQ</h3>
 	<p>Когда запускать zrok?</p>
 	<p>-Тогда, когда Evereast напишет что он запустил сервер</p>
@@ -310,6 +310,7 @@ function showToast(message, isError = false) {
 </script>
 
 </html>
+
 
 
 
