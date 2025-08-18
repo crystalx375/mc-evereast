@@ -106,6 +106,9 @@
         max-width: 80%;
         z-index: 2;
         position: relative;
+		opacity: 0;
+	    transform: translateY(20px);
+	    animation: fadeInUp 0.6s ease forwards;
     }
     .banner-content h1 {
         margin: 0 0 10px 0;
@@ -122,7 +125,32 @@
         max-width: 800px;
         margin: auto;
         margin-top: 30px;
-    }
+	    opacity: 0;
+	    transform: translateY(20px);
+	    animation: fadeInUp 1s ease forwards;
+	}
+	
+	@keyframes fadeInUp {
+	  to {
+	    opacity: 1;
+	    transform: translateY(0);
+	  }
+	}
+	.container-text {
+	    padding: 20px;
+        max-width: 800px;
+        margin: auto;
+        margin-top: 5px;
+	}
+	.container-text-fade {
+		padding: 20px;
+        max-width: 1000px;
+        margin: auto;
+        margin-top: 5px;
+		opacity: 0;
+	    transform: translateY(20px);
+	    animation: fadeInUp 1.5s ease forwards;
+	}
     .content {
         padding: 20px;
         max-width: 800px;
@@ -401,27 +429,35 @@ function startDecorRain() {
 
 
 <div class="parallax">
-    <div class="banner-content reveal" style="--delay:250ms">
+    <div class="banner-content">
         <h1>Evereast</h1>
         <p>Професиональный игрок в Redmatch 2, по совместности кринж майнкрафтер, который любит записывать геймплей со своими друзьями. </p>
     </div>
 </div>
 
 
-<div class="container reveal" style="--delay:0ms">
+<div class="container reveal">
     <h2>Добро пожаловать!</h2>
     <p>Здесь вы найдете полезные материалы и файлы для скачивания. Всё, что вам нужно — ниже.</p>
 </div>
-<div class="container reveal" style="--delay:200ms">
-	<h1>У нас есть свой локальный майнкрафт мир, в который ты можешь сыграть с нами!</h1>
+<div class="container-text-fade">
+	<h2>У нас есть свой локальный майнкрафт мир, в который ты можешь сыграть с нами!</h2>
+</div>
+<div class="container-text reveal">
 	<h3>У нас на сервере есть моды, которые добавляют:</h3>
 	<p>Новые данжи
 	<p>Новые зачарования
 	<p>Более усиленных мобов
 	<p>Орды зомби</p>
 </div>
-<div class="container reveal" style="--delay:500ms">
-	<h3>Но у нас также есть правила, такие как: </h3>
+<div class="container-text reveal">
+	<h3>Для того чтобы зайти к нам, нужно сделать пару действий, которые нужны, чтобы подключиться в наш мир. Это:</h3>
+	<p>Скачать моды
+	<p>Настроить программу для подключения на наш сервер
+	<p>(Опционально) скачать ресурспаки, если нужны будут дам ссылку на скачивание.</p>
+</div>
+<div class="container-text reveal">
+	<h3>Но у нас также есть правила: </h3>
 	<p>Не читерить
 	<p>Не использовать x-ray
 	<p>НЕ ИСПОЛЬЗОВАТЬ МОДЫ НА Minimap (xaero и тп)
@@ -429,18 +465,12 @@ function startDecorRain() {
 	<h5>Основная база* - это база(только одна для команды/человека), у которой есть забор и территория которой освещена, а также есть дорога к спавну.</h5>
 	<p>Вне баз делайте все, что хотите, но не трогайте постройки на спавне(желательно) или мы пойдем вас убивать.</p>
 </div>
-<div class="container reveal" style="--delay:1000ms">
-	<h3>Для того чтобы зайти к нам, нужно сделать пару действий, которые нужны, чтобы подключиться в наш мир. Это:</h3>
-	<p>Скачать моды
-	<p>Настроить программу для подключения на наш сервер
-	<p>(Опционально) скачать ресурспаки, если нужны будут дам ссылку на скачивание.</p>
-</div>
-<div class="container reveal" style="--delay:1200ms">
+<div class="container-text reveal">
 	<h3>Ивенты</h3>
 	<p>Каждые 7 игровых дней спавнится сундук, в котором находятся тотем и золотые зачарованные яблоки. Правил нет.</p>
 	<p>Орды зомби, которые появляются каждые пару дней вокруг игроков</p>
 </div>
-<div class="content reveal" style="--delay:1500ms">
+<div class="content reveal">
     <div class="downloads">
         <div class="download-item" id="zrok">
             <h3>Zrok</h3>
@@ -594,4 +624,5 @@ showSlide(currentSlide);
 showSlide(currentSlide);
 </script>
 </html>
+
 
