@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Evereast</title>
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
 <style>
     body {
         margin: 0;
@@ -214,6 +215,12 @@
 	width: 80%;
     aspect-ratio: 16 / 9;
 }
+@media (max-width: 768px) {
+	.slider-container {
+		display: none;
+	}
+}
+
 .slider {
     display: flex;
     transition: transform 0.5s ease-in-out;
@@ -428,7 +435,7 @@ function startDecorRain() {
 		<a href="downloads/mods.zip" download><img src="images/sourse/mods.png" class="nav-icon">Mods</a>
 	</div>
     <div class="nav-right">
-        <a href="https://crystalx375.github.io/everhack.pro/"><img src="images/everhack/lite_everhack.png" class="nav-icon">Everhack</a>
+        <a href="https://crystalx375.github.io/everhack.pro/"><img src="images/sourse/everhack.png" class="nav-icon">Everhack</a>
     </div>
 </div>
 
@@ -496,11 +503,11 @@ function startDecorRain() {
 </div>
 <div class="slider-container">
     <div class="slider">
-        <div class="slide"><img src="images/1.png" alt=""></div>
-        <div class="slide"><img src="images/2.png" alt=""></div>
-        <div class="slide"><img src="images/3.png" alt=""></div>
-        <div class="slide"><img src="images/4.png" alt=""></div>
-        <div class="slide"><img src="images/5.png" alt=""></div>
+        <div class="slide"><img src="images/1.jpg" alt=""></div>
+        <div class="slide"><img src="images/2.jpg" alt=""></div>
+        <div class="slide"><img src="images/3.jpg" alt=""></div>
+        <div class="slide"><img src="images/4.jpg" alt=""></div>
+        <div class="slide"><img src="images/5.jpg" alt=""></div>
     </div>
 
     <button class="arrow left">&#10094;</button>
@@ -634,3 +641,4 @@ showSlide(currentSlide);
 showSlide(currentSlide);
 </script>
 </html>
+
