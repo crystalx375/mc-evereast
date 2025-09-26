@@ -5,166 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zrok</title>
 <link rel="icon" type="image/png" href="./images/sourse/zrok.png">
-<style>
-    body {
-        margin: 0;
-        font-family: Montserrat, sans-serif;
-        background: #f0ebe1;
-        color: #111;
-    }
-
-    .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 1);
-    display: flex;
-    align-items: center;
-    padding: 8px 30px;
-    z-index: 1000;
-    box-sizing: border-box;
-    }
-
-	.nav-left {
-		display: flex;
-		align-items: center;
-	}
-	.navbar a {
-		color: white;
-		text-decoration: none;
-		margin: 0 15px;
-		font-weight: bold;
-		display: flex;
-		align-items: center;
-	}
-    .navbar a:hover {
-        text-decoration: underline;
-    }
-    .nav-icon {
-        width: 20px;
-        height: 20px;
-        margin-right: 6px;
-    }
-    .spacer {
-        height: 20px;
-    }
-    .btn {
-        display: inline-block;
-        padding: 10px 20px;
-        background: #0077ff;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: background 0.3s;
-    }
-    .btn:hover {
-        background: #005bcc;
-    }
-    .footer {
-        text-align: center;
-        margin-top: 100px;
-		margin-bottom: 40px;
-        background: #white;
-        color: white;
-    }
-    .footer-text {
-        background: rgba(0, 0, 0, 0.6);
-        padding: 20px;
-        border-radius: 10px;
-        display: inline-block;
-    }
-	.container {
-		margin-left: 50px;
-	}
-	.container img {
-    max-width: 800px;
-    height: auto;
-	}
-@media (max-width: 900px) {
-	.container img {
-		max-width: 90%;
-		height: auto;
-	}
-}
-    .container_first {
-      padding: 30px;
-      margin-bottom: -20px;
-    }
-	.container_link; {
-	}
-	.container_second {
-      padding: 30px;
-      margin-bottom: -20px;
-    }
-	.container_final {
-      padding: 30px;
-      margin-bottom: -20px;
-    }
-	.container-copy {
-	}
-	.container-download-copy {
-		margin-top: 4px;
-	}
-	.copy-box {
-		display: inline-block;
-		background: #36373b;
-		color: #edf0ff;
-		padding: 8px 12px;
-		border: 2px solid gray;
-		border-radius: 5px;
-		margin-top: 8px;
-		font-size: 14px;
-		white-space: nowrap; 
-	}
-
-	.copy-btn {
-		display: inline-block;
-		margin-top: 6px;
-		padding: 6px 12px;
-		background: #0077ff;
-		border: none;
-		color: white;
-		cursor: pointer;
-		border-radius: 4px;
-	}
-	.download-btn {
-		margin-top: 6px;
-		padding: 2px 7px;
-		background: #0077ff;
-		border: none;
-		color: white;
-		cursor: pointer;
-		border-radius: 4px;
-		white-space: nowrap; 
-	}
-	.copy-btn:hover {
-		background: #005bcc;
-	}
-	.toast {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(40, 167, 69, 0.95);
-    color: #fff;
-    padding: 10px 16px;
-    border-radius: 6px;
-    font-size: 14px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 9999;
-	}
-	.toast.show {
-		opacity: 1;
-		transform: translateY(0);
-	}
-	.crystal {
-	margin-top: 40px
-	font-size: 20px;
-    text-align: center;
-	color: #b3b7bd;
-	}
-</style>
+<link rel="stylesheet" href="style_zrok.css">
 </head>
 <body>
 
@@ -172,11 +13,12 @@
 	<div class="nav-left">
 		<a href="index.html"><img src="images/sourse/top.png" alt="Главная" class="nav-icon">Главная</a>
 		<a href="zrok.html"><img src="images/sourse/zrok.png" class="nav-icon">Zrok</a>
-		<a href="downloads/mods.zip" download><img src="images/sourse/mods.png" class="nav-icon">Mods</a>
+		<a href="mods.html" download><img src="images/sourse/mods.png" class="nav-icon">Mods</a>
 	</div>
 </div>
 <div class="spacer" id="top"></div>
 <div class="container_first">
+	<h3>Bruh у нас теперь есть белый айпи</h3>
 	<h3>Гайд создан 14.08.2025</h3> <p> Могут быть неточности в будущем времени</p>
 	<p>
 		Возможно, будет уже полная рабочая программа (.exe) от <a href="https://discord.com/users/626700371892371457" class="container_link">santik</a>,которая будет делать все практически автоматически, вам нужно будет только зарегистрироваться, написать токен и скинуть свою почту хосту. Обращайтесь к нему за программой 
@@ -243,26 +85,6 @@ start cmd /k "zrok.exe access private everudp --bind 127.0.0.1:25565 && pause"
 	<button class="copy-btn" onclick="copyMultiLine()">Скопировать</button>
 </div>
 	<p>Если вы захотите запустить zrok просто запускайте .bat файл и 2 подключения будут автоматически созданы</p>
-	<script>
-		async function copyMultiLine() {
-			const text = document.getElementById("multiLineText").innerText;
-			try {
-			await navigator.clipboard.writeText(text);
-			showToast("Текст скопирован!");
-			} catch (err) {
-				console.error('Не удалось скопировать текст: ', err);
-			}
-				}
-		function showToast(message, isError = false) {
-			const toast = document.getElementById("toast");
-			toast.textContent = message;
-			toast.style.background = isError ? "rgba(220,53,69,0.95)" : "rgba(40,167,69,0.95)";
-			toast.classList.add("show");
-			setTimeout(() => {
-				toast.classList.remove("show");
-			}, 2000);
-		}
-	</script>
 </div>
 <div class="container_final">
 	<h3>FAQ</h3>
@@ -271,13 +93,13 @@ start cmd /k "zrok.exe access private everudp --bind 127.0.0.1:25565 && pause"
 	<p>Что будет если запустить zrok раньше?</p>
 	<p>-Не произойдет подключение туннеля и надо будет перезапускать, так так zrok не проверят есть ли соединение и не будет пробовать переподключаться</p>
 	<p>Почему я должен включать неизвестные программы у себя?</p>
-	<p>-Все программы open-sourse, вы сами можете просмотреть код, проверить по virustotal и тп, а нужен zrok нам для соединения, так как у нас нету белого ip</p>
+	<p>-Все программы open-sourse, вы сами можете просмотреть код, проверить по virustotal и тп, а нужен zrok нам для соединения, так как у нас нету белого ip (Теперь есть :/)</p>
 </div>
 	<div id="toast" class="toast">Текст скопирован!</div>
-<div class="footer">
-    <div class="footer-text">
-        <p>Наш Discord</p>
-        <a href="https://discord.gg/fmve9eXpHh" class="btn">Перейти в Discord</a>
+<div class="discord">
+    <div class="discord-text">
+        <p>Discord сервер от Evereast</p>
+        <a href="https://discord.gg/fmve9eXpHh" target="_blank" class="btn">Перейти</a>
     </div>
 </div>
 <div class="crystal">
@@ -287,6 +109,24 @@ start cmd /k "zrok.exe access private everudp --bind 127.0.0.1:25565 && pause"
 </div>
 </body>
 <script>
+	async function copyMultiLine() {
+		const text = document.getElementById("multiLineText").innerText;
+		try {
+		await navigator.clipboard.writeText(text);
+		showToast("Текст скопирован!");
+		} catch (err) {
+			console.error('Не удалось скопировать текст: ', err);
+		}
+			}
+	function showToast(message, isError = false) {
+		const toast = document.getElementById("toast");
+		toast.textContent = message;
+		toast.style.background = isError ? "rgba(220,53,69,0.95)" : "rgba(40,167,69,0.95)";
+		toast.classList.add("show");
+		setTimeout(() => {
+			toast.classList.remove("show");
+		}, 2000);
+	}
 async function copyText(id) {
     const text = document.getElementById(id).innerText;
     try {
@@ -310,15 +150,3 @@ function showToast(message, isError = false) {
 </script>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

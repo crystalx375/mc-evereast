@@ -5,425 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Evereast</title>
 <link rel="icon" type="image/png" href="./images/favicon.png">
+<link rel="stylesheet" href="style.css">
 <style>
-    body {
-        margin: 0;
-        font-family: Montserrat, sans-serif;
-        background: #111112;
-        color: white;
-    }
-	.decor {
-		position: fixed;
-		width: 130px;
-		opacity: 0;
-		transition: opacity 2s ease, transform 1s ease;
-		z-index: 5;              
-		pointer-events: none;    
-		will-change: transform;
-		backface-visibility: hidden;
-	}
-	.decor.show { opacity: 1; }
-@keyframes fall {
-		0% {
-			transform: translateY(-100px) rotate(0deg);
-			opacity: 1;
-		}
-		100% {
-			transform: translateY(100vh) rotate(360deg);
-			opacity: 0;
-		}
-	}
-    .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    display: flex;
+.parallax {
+    max-width: 100%;
+    background-image: url('images/paralax.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     align-items: center;
-    padding: 8px 30px;
-    z-index: 1000;
-    box-sizing: border-box;
-    }
-
-	.nav-left {
-		display: flex;
-		align-items: center;
-	}
-	.nav-right {
-		display: flex;
-		align-items: center;
-		margin-left: auto; 
-	}
-	.navbar a {
-		color: white;
-		text-decoration: none;
-		margin: 0 15px;
-		font-weight: bold;
-		display: flex;
-		align-items: center;
-	}
-	.nav-right a {
-		margin-right: 0;
-	}
-    .navbar a:hover {
-        text-decoration: underline;
-    }
-    .nav-icon {
-        width: 20px;
-        height: 20px;
-        margin-right: 6px;
-    }
-    .spacer {
-        height: 20px;
-    }
-
-    .parallax {
-        height: 800px;
-        background-image: url('https://i.imgur.com/zpeHZM6.jpeg');
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-    }
-
-    .parallax::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 150px;
-        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%);
-    }
-    .banner-content {
-        text-align: center;
-        padding: 20px 40px;
-        background-color: rgba(0, 0, 0, 0.6);
-        border-radius: 10px;
-        max-width: 80%;
-        z-index: 2;
-        position: relative;
-		opacity: 0;
-	    transform: translateY(20px);
-	    animation: fadeInUp 0.9s ease forwards;
-    }
-    .banner-content h1 {
-        margin: 0 0 10px 0;
-        font-size: 2.6em;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-    }
-    .banner-content p {
-        margin: 0;
-        font-size: 0.9em;
-    }
-
-    .container {
-        padding: 20px;
-        max-width: 800px;
-        margin: auto;
-        margin-top: 30px;
-	    opacity: 0;
-	    transform: translateY(20px);
-	    animation: fadeInUp 1.3s ease forwards;
-	}
-	
-	@keyframes fadeInUp {
-	  to {
-	    opacity: 1;
-	    transform: translateY(0);
-	  }
-	}
-	.container-down {
-        padding: 20px;
-        max-width: 800px;
-        margin: auto;
-        margin-top: 30px;
-		margin-bottom: 100px;
-	}
-	.container-text {
-	    padding: 20px;
-        max-width: 800px;
-        margin: auto;
-        margin-top: -30px;
-	}
-    .content {
-        padding: 20px;
-        max-width: 800px;
-        margin: auto;
-        margin-top: 30px;
-        margin-bottom: -20px;
-    }
-    .downloads {
-        margin-top: 0px;
-    }
-    .download-item {
-        background: #151617;
-        border-radius: 8px;
-        padding: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        color: white;
-		border: 3px solid gray;
-    }
-    .download-item h3 {
-        margin-top: 0;
-    }
-    .btn {
-        display: inline-block;
-        padding: 10px 20px;
-        background: #0077ff;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: background 0.3s;
-    }
-    .btn:hover {
-        background: #005bcc;
-    }
-    .footer {
-        text-align: center;
-        margin-top: 100px;
-		margin-bottom: 40px;
-        background: #111112;
-        color: white;
-    }
-    .footer-text {
-        background: rgba(0, 0, 0, 0.6);
-        padding: 20px;
-        border-radius: 10px;
-        display: inline-block;
-    }
-.slider-container {
-    position: relative;
-    max-width: 1200px;
-    margin: 50px auto;
-    overflow: hidden;
-    border-radius: 10px;
-	width: 80%;
-    aspect-ratio: 16 / 9;
-}
-@media (max-width: 768px) {
-	.slider-container {
-		display: none;
-	}
-}
-
-.slider {
     display: flex;
-    transition: transform 0.5s ease-in-out;
-    height: 100%;
-}
-.slide {
-    min-width: 100%;
-    height: 100%;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
     justify-content: center;
+    position: relative;
+    aspect-ratio: 21 / 9;
 }
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-		
-	.dots {
-	    text-align: center;
-	    position: absolute;
-	    bottom: 15px;
-	    width: 100%;
-	}
-	
-	.dot {
-	    height: 12px;
-	    width: 12px;
-	    margin: 0 5px;
-	    background-color: rgba(255,255,255,0.6);
-	    border-radius: 50%;
-	    display: inline-block;
-	    cursor: pointer;
-	    transition: background-color 0.3s;
-	}
-	.dot.active {
-	    background-color: white;
-	}
-	
-	
-	.arrow {
-	    position: absolute;
-	    top: 50%;
-	    transform: translateY(-50%);
-	    background: rgba(0, 0, 0, 0.5);
-	    border: none;
-	    color: white;
-	    font-size: 30px;
-	    padding: 10px;
-	    cursor: pointer;
-	    border-radius: 50%;
-	    z-index: 20;
-	    transition: background 0.3s;
-	}
-	.arrow:hover {
-	    background: rgba(0, 0, 0, 0.8);
-	}
-	.arrow.left {
-	    left: 10px;
-	}
-	.arrow.right {
-	    right: 10px;
-	}
-	
-	@media (max-width: 768px) {
-	    .slide {
-	        height: 35vh;
-	    }
-	}
-.crystal {
-	margin-top: 40px
-	font-size: 20px;
-    text-align: center;
-	color: #b3b7bd;
-}
-.decor-btn {
-    padding: 12px 20px;
-    background: linear-gradient(45deg, #111111, #222222);
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: transform 0.2s, box-shadow 0.2s;
-	margin-bottom: 40px;
-}
-
-.decor-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-}
-
-.decor-btn:active {
-    transform: scale(0.95);
-}
-body::before,
-body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-	width: clamp(0px, 5vw, 150px);
-    height: 100%;
-    z-index: 10;
-    pointer-events: none;
-}
-
-body::before {
-    left: 0;
-    background: linear-gradient(to right, rgba(0,0,0,0.5), transparent);
-}
-
-body::after {
-    right: 0;
-    background: linear-gradient(to left, rgba(0,0,0,0.5), transparent);
-}
-@media (max-width: 1100px) {
-    body::before,
-    body::after {
-        display: none;
-    }
-}
-	.reveal {
-	  opacity: 0;
-	  transform: translateY(20px);
-	  transition: opacity .7s ease, transform .7s ease;
-	}
-	.reveal.show {
-	  opacity: 1;
-	  transform: translateY(0);
-	}
 </style>
 </head>
 <body>
-<script>
-const decors = document.querySelectorAll('.decor');
-let decorShown = false;
-
-
-window.addEventListener('scroll', () => {
-    if (!decorShown) {
-        decorShown = true;
-        decors.forEach(el => el.classList.add('show'));
-    }
-
-    const offset = window.scrollY;
-    decors.forEach(el => {
-        const speed = parseFloat(el.dataset.speed);
-        const baseRotate = parseFloat(el.dataset.rotate);
-        el.style.transform = `translateY(${offset * speed}px) rotate(${baseRotate + offset * speed}deg)`;
-    });
-});
-
-const decorImages = [
-    'images/decor/1.png',
-    'images/decor/2.png',
-    'images/decor/3.png'
-];
-
-window.addEventListener('scroll', () => {
-    if (!decorShown) {
-        decorShown = true;
-        decors.forEach(el => el.classList.add('show'));
-    }
-
-    const offset = window.scrollY;
-    decors.forEach(el => {
-        const speed = parseFloat(el.dataset.speed);
-        const baseRotate = parseFloat(el.dataset.rotate);
-        el.style.transform = `translateY(${offset * speed}px) rotate(${baseRotate + offset * speed}deg)`;
-    });
-});
-
-function spawnDecorRain() {
-    for (let i = 0; i < 10; i++) {
-        let drop = document.createElement('img');
-        
-        drop.src = decorImages[Math.floor(Math.random() * decorImages.length)];
-
-        drop.style.position = 'fixed';
-        drop.style.left = Math.random() * window.innerWidth + 'px';
-        drop.style.top = '-100px';
-        drop.style.width = '80px';
-        drop.style.animation = 'fall 3s linear forwards';
-        drop.style.zIndex = '9999';
-        document.body.appendChild(drop);
-        
-        setTimeout(() => {
-            drop.remove();
-        }, 3000);
-    }
-}
-
-function startDecorRain() {
-    let cycles = 0;
-    const rainInterval = setInterval(() => {
-        spawnDecorRain();
-        cycles++;
-        if (cycles >= 6) {
-            clearInterval(rainInterval);
-        }
-    }, 1000);
-}
-</script>
 <div class="navbar">
 	<div class="nav-left">
 		<a href="index.html"><img src="images/sourse/top.png" alt="Главная" class="nav-icon">Главная</a>
 		<a href="zrok.html"><img src="images/sourse/zrok.png" class="nav-icon">Zrok</a>
-		<a href="downloads/mods.zip" download><img src="images/sourse/mods.png" class="nav-icon">Mods</a>
+		<a href="mods.html" download><img src="images/sourse/mods.png" class="nav-icon">Mods</a>
 	</div>
     <div class="nav-right">
         <a href="https://crystalx375.github.io/everhack.pro/"><img src="images/sourse/everhack.png" class="nav-icon">Everhack</a>
@@ -441,37 +45,29 @@ function startDecorRain() {
 </div>
 
 
-<div class="container">
+<div class="container-hello">
     <h2>Добро пожаловать!</h2>
-    <p>Здесь вы найдете полезные материалы и файлы для скачивания. Всё, что вам нужно — ниже.</p>
+    <div class="container reveal">
+        <h3>У нас есть свой локальный майнкрафт мир, в который ты можешь сыграть с нами!</h3>
+    </div>
 </div>
-<div class="container-text reveal">
-	<h2>У нас есть свой локальный майнкрафт мир, в который ты можешь сыграть с нами!</h2>
-</div>
-<div class="container-text reveal">
-	<h3>У нас на сервере есть моды, которые добавляют:</h3>
-	<p>Новые данжи
-	<p>Новые зачарования
-	<p>Усиленных мобов
-	<p>Орды зомби (Это пиздец)</p>
-</div>
-<div class="container-text reveal">
-	<h3>Для того чтобы зайти к нам, нужно сделать пару действий, которые нужны, чтобы подключиться в наш мир. Это:</h3>
-	<p>Настроить программу для подключения на наш сервер
-	<p>Скачать моды
-	<p>(Опционально) скачать ресурспаки, если нужны будут дам ссылку на скачивание.</p>
+<div class="container-2 reveal">
+    <div class="container-2-text reveal">
+        <h1>У нас на сервере есть моды, которые добавляют:</h3>
+        <div class="container-2-list reveal">
+            <h3>- Новые данжи
+            <h3>- Новые зачарования
+            <h3>- Усиленных мобов
+            <h3>- Орды зомби (Это пиздец)</h3>
+        </div>
+    </div>
 </div>
 <div class="content reveal">
     <div class="downloads">
-        <div class="download-item" id="zrok">
-            <h3>Zrok</h3>
-            <p>Программа для подключения на наш сервер (создает tcp/udp туннели)</p>
-            <a href="zrok.html" class="btn">Подробнее</a>
-        </div>
         <div class="download-item" id="mods">
             <h3>Mods</h3>
-            <p>Моды для сервера evereast (обязательны к скачиванию)</p>
-            <a href="downloads/mods.zip" class="btn" download>Скачать</a>
+            <p>Моды для сервера Evereast (обязательны к скачиванию)</p>
+            <a href="mods.html" class="btn" download>Скачать</a>
         </div>
     </div>
 </div>
@@ -480,8 +76,8 @@ function startDecorRain() {
 		<h3>Но у нас также есть правила: </h3>
 		<p>Не гриферить основные базы* 
 		<p>Фармилки мобов запрещены
-		<p>РАЗРЕШЕН ДЮП ТОЛЬКО ковров и рельс
-		<p>НЕ ИСПОЛЬЗОВАТЬ МОДЫ НА Minimap (xaero и тп)
+		<p>ДЮП только ковров и рельс
+		<p>НЕ ИСПОЛЬЗОВАТЬ моды на Minimap (xaero и тп)
 		<p>Не читерить</p>
 		<h5>Основная база* - это база(только одна для команды/человека), у которой есть забор и освещенная территория, а также есть дорога к спавну.</h5>
 		<p>Вне баз делайте все, что хотите, но не трогайте постройки на спавне(желательно) или мы пойдем вас убивать.</p>
@@ -512,11 +108,20 @@ function startDecorRain() {
         <span class="dot"></span>
     </div>
 </div>
-
-<div class="footer">
-    <div class="footer-text">
-        <p>Наш Discord</p>
-        <a href="https://discord.gg/fmve9eXpHh" class="btn">Перейти в Discord</a>
+<div class="content reveal">
+    <div class="downloads">
+        <div class="download-item" id="zrok">
+            <h3>Zrok (Устаревшее)</h3>
+            <p>Программа для подключения на наш сервер (создает tcp/udp туннели)</p>
+            <a href="zrok.html" class="btn">Подробнее</a>
+        </div>
+    </div>
+</div>
+<div class="gif img"><img src="images/evereast.gif" alt=""></div>
+<div class="discord">
+    <div class="discord-text">
+        <p>Discord сервер Evereast</p>
+        <a href="https://discord.gg/fmve9eXpHh" target="_blank" class="btn">Перейти</a>
     </div>
 </div>
 <div class="crystal">
@@ -528,114 +133,6 @@ function startDecorRain() {
 <div style="position:center; bottom:20px; right:20px; z-index:999;">
     <button class="decor-btn" onclick="startDecorRain()">Pelmeni</button>
 </div>
+    <script src="script.js"></script>
 </body>
-<script>
-window.addEventListener('scroll', () => {
-  document.querySelectorAll('.reveal').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 0.85) {
-      el.classList.add('show');
-    }
-  });
-});
-
-
-let currentSlide = 0;
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".dot");
-const slider = document.querySelector(".slider");
-const prevBtn = document.querySelector(".arrow.left");
-const nextBtn = document.querySelector(".arrow.right");
-let autoSlideInterval = setInterval(nextSlide, 4000);
-
-function showSlide(index) {
-    if (index >= slides.length) currentSlide = 0;
-    else if (index < 0) currentSlide = slides.length - 1;
-    else currentSlide = index;
-
-    slider.style.transform = `translateX(${-currentSlide * 100}%)`;
-
-    dots.forEach(dot => dot.classList.remove("active"));
-    dots[currentSlide].classList.add("active");
-}
-
-function nextSlide() {
-    showSlide(currentSlide + 1);
-}
-
-function prevSlide() {
-    showSlide(currentSlide - 1);
-}
-
-function resetTimer() {
-    clearInterval(autoSlideInterval);
-    autoSlideInterval = setInterval(nextSlide, 4000);
-}
-
-dots.forEach((dot, index) => {
-    dot.addEventListener("click", () => {
-        showSlide(index);
-        resetTimer();
-    });
-});
-
-nextBtn.addEventListener("click", () => {
-    nextSlide();
-    resetTimer();
-});
-prevBtn.addEventListener("click", () => {
-    prevSlide();
-    resetTimer();
-});
-
-document.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowRight") {
-        nextSlide();
-        resetTimer();
-    }
-    if (event.key === "ArrowLeft") {
-        prevSlide();
-        resetTimer();
-    }
-});
-
-showSlide(currentSlide);
-
-(function() {
-    let targetScroll = window.scrollY; 
-    let currentScroll = window.scrollY; 
-    let isScrolling = false;
-
-
-    const ease = 0.08;
-    const wheelSpeed = 0.7;
-
-
-    window.addEventListener("wheel", (e) => {
-        targetScroll += e.deltaY * wheelSpeed; 
-        targetScroll = Math.max(0, Math.min(targetScroll, document.body.scrollHeight - window.innerHeight)); // границы
-        if (!isScrolling) updateScroll();
-    }, { passive: false });
-
-    function updateScroll() {
-        isScrolling = true;
-        currentScroll += (targetScroll - currentScroll) * ease;
-        window.scrollTo(0, currentScroll);
-
-        if (Math.abs(targetScroll - currentScroll) > 0.8) {
-            requestAnimationFrame(updateScroll);
-        } else {
-            isScrolling = false;
-        }
-    }
-})();
-showSlide(currentSlide);
-</script>
 </html>
-
-
-
-
-
-
-
