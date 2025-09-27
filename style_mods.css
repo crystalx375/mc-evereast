@@ -52,11 +52,9 @@ box-sizing: border-box;
 }
     .container-green {
         color: rgb(88, 206, 88);
-        text-decoration: none;
     }
     .container-orange {
         color: orange;
-        text-decoration: none;
     }
 .content {
     padding: 20px;
