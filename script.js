@@ -89,7 +89,7 @@ const dots = document.querySelectorAll(".dot");
 const slider = document.querySelector(".slider");
 const prevBtn = document.querySelector(".arrow.left");
 const nextBtn = document.querySelector(".arrow.right");
-let autoSlideInterval = setInterval(nextSlide, 4000);
+let autoSlideInterval = null;
 
 function showSlide(index) {
     if (index >= slides.length) currentSlide = 0;
@@ -143,6 +143,23 @@ document.addEventListener("keydown", (event) => {
 });
 
 showSlide(currentSlide);
+  const sliderObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (!autoSlideInterval) {
+          autoSlideInterval = setInterval(nextSlide, 4000);
+        }
+      } else {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = null;
+      }
+    });
+  }, { threshold: 0.1 });
+
+  const sliderContainer = document.querySelector(".slider-container");
+  if (sliderContainer) {
+    sliderObserver.observe(sliderContainer);
+  }
 
 (function() {
     let targetScroll = window.scrollY; 
