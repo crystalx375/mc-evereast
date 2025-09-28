@@ -41,14 +41,14 @@ box-sizing: border-box;
     height: 20px;
 }
 .container-hello {
-    margin-top: 30px;
-    margin-left: 70px;
+    margin-top: 40px;
+    margin-left: 50px;
     max-width: 80%;
+    color: white;
 }
 .container-link {
-    margin-top: 30px;
-    margin-left: 50px;
-    max-width: 100%;
+    width: 20%;
+    margin-left: 10px;
 }
     .container-green {
         color: rgb(88, 206, 88);
@@ -56,6 +56,16 @@ box-sizing: border-box;
     .container-orange {
         color: orange;
     }
+.container {
+    display: flex;
+    margin: 0 auto;
+    max-width: 95%;
+    margin-top: 50px;
+}
+.text {
+    color: white;
+    margin-top: 20px;
+}
 .content {
     padding: 20px;
     max-width: 80%;
@@ -121,7 +131,7 @@ margin-bottom: 50px;
   justify-content: center;
   align-items: center;
   z-index: 5;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 #preloader.hide {
   opacity: 0;
