@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Montserrat, sans-serif;
-    background: #111112;
+    background: #0f0f0f;
     color: white;
 }
 .decor {
@@ -32,7 +32,7 @@ width: 100%;
 background: rgba(0, 0, 0, 0.99);
 display: flex;
 align-items: center;
-padding: 8px 30px;
+padding: 8px 10px;
 z-index: 1000;
 box-sizing: border-box;
 }
@@ -48,7 +48,7 @@ box-sizing: border-box;
 	.navbar a {
 		color: white;
 		text-decoration: none;
-		margin: 0 15px;
+		margin: 0 20px;
 		font-weight: bold;
 		display: flex;
 		align-items: center;
@@ -67,6 +67,14 @@ box-sizing: border-box;
     .spacer {
         height: 20px;
     }
+@media (max-width: 768px) {
+    .navbar {
+        font-size: smaller;
+    }
+    .navbar a {
+		margin: 0 2%;
+    }
+}
 .parallax::after {
     content: "";
     position: absolute;
@@ -125,7 +133,6 @@ box-sizing: border-box;
     max-width: 80%;
     margin: auto;
     margin-top: 30px;
-    margin-bottom: 100px;
 }
 .container-text {
     padding: 20px;
@@ -183,6 +190,16 @@ box-sizing: border-box;
         line-height: 50px;
         max-width: 80%;
     }
+.content-link {
+    max-width: 50%;
+    margin: 0 auto;
+    margin-bottom: 200px;
+    z-index: 10;
+}
+.connect {
+    text-align: center;
+    margin-top: 40px;
+}
 .content {
     padding: 20px;
     max-width: 80%;
@@ -370,6 +387,45 @@ body::before {
     body::after {
         display: none;
     }
+}
+.copy-btn {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 6px 12px;
+    background: #0077ff;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.copy-btn:hover {
+    background: #005bcc;
+}
+.text-copy {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    background-color: #222222;
+    border: solid 1px snow;
+    border-radius: 5px;
+}
+.toast {
+margin-left: 45%;
+position: fixed;
+bottom: 100px;
+background: rgba(40, 167, 69, 0.95);
+color: #fff;
+padding: 10px 16px;
+border-radius: 6px;
+font-size: 14px;
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.3s ease, transform 0.3s ease;
+z-index: 1;
+}
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 .reveal {
     opacity: 0;

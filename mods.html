@@ -13,14 +13,15 @@
 		<a href="index.html"><img src="images/sourse/top.png" alt="Главная" class="nav-icon">Главная</a>
 		<a href="zrok.html"><img src="images/sourse/zrok.png" class="nav-icon">Zrok</a>
 		<a href="mods.html"><img src="images/sourse/mods.png" class="nav-icon">Mods</a>
+		<a href="people.html"><img src="images/sourse/people.png" class="nav-icon">Участники</a>
 	</div>
 </div>
 <div id="preloader">
     <div class="spinner"></div>
 </div>
 <div class="spacer" id="top"></div>
-<div class="container-hello"><h2>Моды</h2></div>
-<div class="container">
+<div class="container-hello reveal"><h2>Это моды которые вы будете использовать</h2><h3>Вы можете ознакомиться с ними:</h3></div>
+<div class="container reveal">
   <div class="container-link">
       <div class="text"><h2>Buffs</h2></div>
       <p><a class='container-orange' href="https://www.curseforge.com/minecraft/mc-mods/expcontainer" target="_blank">- Experience Container</a></p>
@@ -58,6 +59,7 @@
       <p><a class='container-orange' href="https://www.curseforge.com/minecraft/mc-mods/torchslabs-mod" target="_blank">- Torch Slabs Mod</a></p>
     </div>
 </div>
+<div class="container-hello reveal"><h3>Или скачать:</h3></div>
 <div class="content reveal">
     <div class="downloads">
         <div class="download-item" id="mods">
@@ -74,7 +76,8 @@
         </div>
     </div>
 </div>
-<div class="discord">
+<div
+<div class="discord reveal">
     <div class="discord-text">
         <p>Discord сервер Evereast</p>
         <a href="https://discord.gg/fmve9eXpHh" target="_blank" class="btn">Перейти</a>
@@ -99,8 +102,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (img.complete) {
         incrementCounter();
       } else {
-        img.addEventListener("load", incrementCounter);
-        img.addEventListener("error", incrementCounter);
+        img.addEventListener("load", incrementCounter, { once: true });
+        img.addEventListener("error", incrementCounter, { once: true });
       }
     });
   }
@@ -115,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
     preloader.classList.add("hide");
     initReveals();
   }
-    function initReveals() {
+  function initReveals() {
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -125,6 +128,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }, {
       threshold: 0.35
+    });
+
+    document.querySelectorAll(".reveal").forEach(el => {
+      observer.observe(el);
     });
   }
 });

@@ -13,6 +13,7 @@
 		<a href="index.html"><img src="images/sourse/top.png" alt="Главная" class="nav-icon">Главная</a>
 		<a href="zrok.html"><img src="images/sourse/zrok.png" class="nav-icon">Zrok</a>
 		<a href="mods.html"><img src="images/sourse/mods.png" class="nav-icon">Mods</a>
+		<a href="people.html"><img src="images/sourse/people.png" class="nav-icon">Участники</a>
 	</div>
 </div>
 <div id="preloader">
@@ -40,7 +41,7 @@
     <p>
       3. Будем запускать zrok. Для этого введите в проводнике где папка с zrok.exe - cmd - как на фото снизу, должна открыться консоль
     </p>
-	<div class="container"><img src="images/zrok/cmd.png" alt="cmd"></div>
+	<div class="container"><img src="images/zrok/cmd.png" loading="lazy" alt="cmd"></div>
 	
     <p> После пишем в неё zrok enable 'ваш токен', пример - zrok enable O8abVnfaE1    </p>
     <div class="copy-box">
@@ -162,8 +163,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (img.complete) {
         incrementCounter();
       } else {
-        img.addEventListener("load", incrementCounter);
-        img.addEventListener("error", incrementCounter);
+        img.addEventListener("load", incrementCounter, { once: true });
+        img.addEventListener("error", incrementCounter, { once: true });
       }
     });
   }

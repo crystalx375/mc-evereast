@@ -1,6 +1,6 @@
+// Decors
 const decors = document.querySelectorAll('.decor');
 let decorShown = false;
-
 
 window.addEventListener('scroll', () => {
     if (!decorShown) {
@@ -21,21 +21,6 @@ const decorImages = [
     'images/decor/2.png',
     'images/decor/3.png'
 ];
-
-window.addEventListener('scroll', () => {
-    if (!decorShown) {
-        decorShown = true;
-        decors.forEach(el => el.classList.add('show'));
-    }
-
-    const offset = window.scrollY;
-    decors.forEach(el => {
-        const speed = parseFloat(el.dataset.speed);
-        const baseRotate = parseFloat(el.dataset.rotate);
-        el.style.transform = `translateY(${offset * speed}px) rotate(${baseRotate + offset * speed}deg)`;
-    });
-});
-
 function spawnDecorRain() {
     for (let i = 0; i < 10; i++) {
         let drop = document.createElement('img');
@@ -66,6 +51,7 @@ function startDecorRain() {
         }
     }, 1000);
 }
+// Fix reveal
 document.addEventListener("DOMContentLoaded", () => {
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
@@ -82,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
+// Slider 
 let currentSlide = 0;
 const slides = document.querySelectorAll(".slide");
 const dots = document.querySelectorAll(".dot");
@@ -130,7 +116,7 @@ prevBtn.addEventListener("click", () => {
     prevSlide();
     resetTimer();
 });
-
+// Стрелки
 document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowRight") {
         nextSlide();
@@ -160,20 +146,18 @@ showSlide(currentSlide);
   if (sliderContainer) {
     sliderObserver.observe(sliderContainer);
   }
-
+ // Плавная прокрутка
 (function() {
     let targetScroll = window.scrollY; 
     let currentScroll = window.scrollY; 
     let isScrolling = false;
 
-
     const ease = 0.08;
     const wheelSpeed = 0.7;
 
-
     window.addEventListener("wheel", (e) => {
         targetScroll += e.deltaY * wheelSpeed; 
-        targetScroll = Math.max(0, Math.min(targetScroll, document.body.scrollHeight - window.innerHeight)); // границы
+        targetScroll = Math.max(0, Math.min(targetScroll, document.body.scrollHeight - window.innerHeight));
         if (!isScrolling) updateScroll();
     }, { passive: false });
 
@@ -191,7 +175,7 @@ showSlide(currentSlide);
 })();
 showSlide(currentSlide);
 
-
+// Прогрузка preloader
 document.addEventListener("DOMContentLoaded", () => {
   const preloader = document.getElementById("preloader");
   const images = document.querySelectorAll("img");
@@ -205,8 +189,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (img.complete) {
         incrementCounter();
       } else {
-        img.addEventListener("load", incrementCounter);
-        img.addEventListener("error", incrementCounter);
+        img.addEventListener("load", incrementCounter, { once: true });
+        img.addEventListener("error", incrementCounter, { once: true });
       }
     });
   }
@@ -240,3 +224,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+// Копирование
+function showToast(message, isError = false) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.style.background = isError ? "rgba(220,53,69,0.95)" : "rgba(40,167,69,0.95)";
+  toast.classList.add("show");
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2000);
+}
+async function copyText(id) {
+  const text = document.getElementById(id).innerText;
+  try {
+      await navigator.clipboard.writeText(text);
+      showToast("Текст скопирован!");
+  } catch (err) {
+      console.error('Не удалось скопировать текст: ', err);
+      showToast("Ошибка копирования!", true);
+  }
+}
+
+function showToast(message, isError = false) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.style.background = isError ? "rgba(220,53,69,0.95)" : "rgba(40,167,69,0.95)";
+  toast.classList.add("show");
+  setTimeout(() => {
+      toast.classList.remove("show");
+  }, 2000);
+}
