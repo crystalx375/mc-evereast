@@ -20,6 +20,52 @@
     position: relative;
     aspect-ratio: 21 / 9;
 }
+/*Визуал страницы */
+.decor-btn {
+    padding: 12px 20px;
+    background: linear-gradient(45deg, #111111, #222222);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+	margin-bottom: 40px;
+    z-index: 10;
+}
+    .decor-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    }
+    .decor-btn:active {
+        transform: scale(0.95);
+    }
+body::before,
+    body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        width: clamp(0px, 5vw, 150px);
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+    }
+body::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.5), transparent);
+}
+    body::after {
+        right: 0;
+        background: linear-gradient(to left, rgba(0,0,0,0.5), transparent);
+    }
+@media (max-width: 1100px) {
+    body::before,
+    body::after {
+        display: none;
+    }
+}
 </style>
 </head>
 <body>

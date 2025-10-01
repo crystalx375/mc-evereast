@@ -51,22 +51,6 @@ function startDecorRain() {
         }
     }, 1000);
 }
-// Fix reveal
-document.addEventListener("DOMContentLoaded", () => {
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-        obs.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.3
-  });
-  document.querySelectorAll(".reveal").forEach(el => {
-    observer.observe(el);
-  });
-});
 
 // Slider 
 let currentSlide = 0;

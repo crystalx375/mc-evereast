@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zrok</title>
 <link rel="icon" type="image/png" href="./images/sourse/zrok.png">
-<link rel="stylesheet" href="style_zrok.css">
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="body-zrok">
 <div class="navbar">
 	<div class="nav-left">
 		<a href="index.html"><img src="images/sourse/top.png" alt="Главная" class="nav-icon">Главная</a>
@@ -20,7 +20,7 @@
     <div class="spinner"></div>
 </div>
 <div class="spacer" id="top"></div>
-<div class="container_first">
+<div class="container_first reveal">
 	<h3>Bruh у нас теперь есть белый айпи</h3>
 	<h3>Гайд создан 14.08.2025</h3> <p> Могут быть неточности в будущем времени</p>
 	<p>
@@ -37,11 +37,11 @@
 	  <a href="https://api-v1.zrok.io/" class="container_link">zrok.api</a>
 	  и копируете свой токен как на фото снизу. При необходимости регистрируетесь/входите в аккаунт
 	</p>
-	<div class="container"><img src="images/zrok/token.png" alt="token"></div>
+	<div class="container-zrok reveal"><img src="images/zrok/token.png" alt="token"></div>
     <p>
       3. Будем запускать zrok. Для этого введите в проводнике где папка с zrok.exe - cmd - как на фото снизу, должна открыться консоль
     </p>
-	<div class="container"><img src="images/zrok/cmd.png" loading="lazy" alt="cmd"></div>
+	<div class="container-zrok reveal"><img src="images/zrok/cmd.png" loading="lazy" alt="cmd"></div>
 	
     <p> После пишем в неё zrok enable 'ваш токен', пример - zrok enable O8abVnfaE1    </p>
     <div class="copy-box">
@@ -53,18 +53,18 @@
 		<a href="https://docs.zrok.io/docs/guides/permission-modes/" class="container_link">Вы не сможете создать туннель в zrok если у хоста не будет вашей почты</a>
 </div>
 
-<div class="container_second">
+<div class="container_second reveal">
     <h1>2. Подключение туннеля для zrok</h1>
 		<p>1. Есть несколько возможностей использовать команды для подключения:</p>
 
 	<p>1.1 Не предпочтительный способ через запуск cmd и ввод команды (для Minecraft) (Работает в терминале на Linux):</p>
-			<div class="copy-box">
+			<div class="copy-box reveal">
 				<code id="textToCopy2">zrok.exe access private ever --bind 127.0.0.1:25565</code>
 			</div>
 			<button class="copy-btn" onclick="copyText('textToCopy2')">Скопировать</button>
 
 		<p>И команда для войс-чата:</p>
-			<div class="copy-box">
+			<div class="copy-box reveal">
 				<code id="textToCopy3">zrok.exe access private everudp --bind 127.0.0.1:25565</code>
 			</div>
 			<button class="copy-btn" onclick="copyText('textToCopy3')">Скопировать</button>
@@ -73,7 +73,7 @@
 	<p>1.2 Наиболее легкий способ для Windows: </p>
 		<p>Скачиваете .bat файл с такой командой, или создайте свой батник с такой командой</p>
 		<h4>Батник должен быть в папке с zrok.exe для корректной работы!</h4>
-<div class="copy-box">
+<div class="copy-box reveal">
 <pre id="multiLineText">
 @echo off
 start cmd /k "zrok.exe access private ever --bind 127.0.0.1:25565 && pause"
@@ -89,7 +89,7 @@ start cmd /k "zrok.exe access private everudp --bind 127.0.0.1:25565 && pause"
 </div>
 	<p>Если вы захотите запустить zrok просто запускайте .bat файл и 2 подключения будут автоматически созданы</p>
 </div>
-<div class="container_final">
+<div class="container_final reveal">
 	<h3>FAQ</h3>
 	<p>Когда запускать zrok?</p>
 	<p>-Тогда, когда Evereast напишет что он запустил сервер</p>
@@ -110,88 +110,6 @@ start cmd /k "zrok.exe access private everudp --bind 127.0.0.1:25565 && pause"
 	<p>License  "All rights not reserved"</p>
 	<p>Делаете всё что хотите</p>
 </div>
+    <script src="script-other.js"></script>
 </body>
-<script>
-	async function copyMultiLine() {
-		const text = document.getElementById("multiLineText").innerText;
-		try {
-		await navigator.clipboard.writeText(text);
-		showToast("Текст скопирован!");
-		} catch (err) {
-			console.error('Не удалось скопировать текст: ', err);
-		}
-			}
-	function showToast(message, isError = false) {
-		const toast = document.getElementById("toast");
-		toast.textContent = message;
-		toast.style.background = isError ? "rgba(220,53,69,0.95)" : "rgba(40,167,69,0.95)";
-		toast.classList.add("show");
-		setTimeout(() => {
-			toast.classList.remove("show");
-		}, 2000);
-	}
-async function copyText(id) {
-    const text = document.getElementById(id).innerText;
-    try {
-        await navigator.clipboard.writeText(text);
-        showToast("Текст скопирован!");
-    } catch (err) {
-        console.error('Не удалось скопировать текст: ', err);
-        showToast("Ошибка копирования!", true);
-    }
-}
-
-function showToast(message, isError = false) {
-    const toast = document.getElementById("toast");
-    toast.textContent = message;
-    toast.style.background = isError ? "rgba(220,53,69,0.95)" : "rgba(40,167,69,0.95)";
-    toast.classList.add("show");
-    setTimeout(() => {
-        toast.classList.remove("show");
-    }, 2000);
-}
-document.addEventListener("DOMContentLoaded", () => {
-  const preloader = document.getElementById("preloader");
-  const images = document.querySelectorAll("img");
-  let loadedCount = 0;
-  const totalImages = images.length;
-
-  if (totalImages === 0) {
-    hidePreloader();
-  } else {
-    images.forEach(img => {
-      if (img.complete) {
-        incrementCounter();
-      } else {
-        img.addEventListener("load", incrementCounter, { once: true });
-        img.addEventListener("error", incrementCounter, { once: true });
-      }
-    });
-  }
-
-  function incrementCounter() {
-    loadedCount++;
-    if (loadedCount >= totalImages) {
-      hidePreloader();
-    }
-  }
-  function hidePreloader() {
-    preloader.classList.add("hide");
-    initReveals();
-  }
-    function initReveals() {
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-          obs.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.35
-    });
-  }
-});
-</script>
-
 </html>
