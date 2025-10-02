@@ -182,7 +182,7 @@ z-index: 1;
 
 
 
-/*Index */
+/*Index ------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 .parallax::after {
     content: "";
     position: absolute;
@@ -435,7 +435,7 @@ z-index: 1;
 
 
 
-/*Zrok */
+/*Zrok ------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*Цвет фона */
 .body-zrok {
     background-color: #f0ebe1;
@@ -492,7 +492,7 @@ z-index: 1;
 
 
 
-/*Mods */
+/*Mods ------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*Цвет фона */
 .body-mods {
     background: #1b1c1d;
@@ -542,7 +542,7 @@ z-index: 1;
 .container-mods-image {
     margin-top: 50px !important;
     margin: auto;
-    max-width: 80%;
+    max-width: 1000px;
 }
 .container-mods-image img {
     max-width: 100%;
@@ -552,10 +552,10 @@ z-index: 1;
 
 
 
-/*People */
+/*People ------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*Цвет фона */
 .body-people {
-    background: #1b1c1d;
+    background: #0F0F0c;
     color: #ffffff;
 }
 /*Цвет фона */
@@ -577,7 +577,7 @@ z-index: 1;
     gap: 15px; 
 }
 .container-people-image img {
-    max-width: 80%;
+    max-width: 1000px;
     margin-top: 40px;
 }
     .black {
@@ -587,7 +587,7 @@ z-index: 1;
         background: url(images/names-of-glory/gray.gif) repeat center center;
         display: inline-block;
         padding: 1px 2px;
-        color: #7a7a7a;
+        color: rgb(184, 184, 184);
     }
     .red {
         background: url(images/names-of-glory/red.gif) repeat center center;
