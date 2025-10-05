@@ -237,16 +237,35 @@ z-index: 1;
     margin-top: 30px;
 }
 .container-down {
-    padding: 20px;
-    max-width: 80%;
     margin: auto;
     margin-top: 30px;
 }
+.container-text-rule {
+    margin-top: -20px;
+    color: rgb(255, 69, 69);
+    margin-bottom: 50px;
+}
+.yellow-text {
+    color: rgb(255, 227, 167);
+}
+.red-line {
+    padding: 40px 40px;
+    background-color: transparent;
+    margin: auto;
+    max-width: 70%;
+    border: 3px solid rgb(255, 69, 69);
+    border-radius: 30px;
+    margin-bottom: 100px;
+}
 .container-text {
-    padding: 20px;
+    margin: auto;
+    color: white;
+    margin-bottom: 20px;
+}
+.container-text-ivent {
     max-width: 80%;
     margin: auto;
-    margin-top: -30px;
+    color: white;
 }
 .container-2 {
     display: flex;
@@ -539,23 +558,13 @@ z-index: 1;
     max-width: 75%;
     margin-top: 30px;
 }
-.container-mods-image {
-    margin-top: 50px !important;
-    margin: auto;
-    max-width: 1000px;
-}
-.container-mods-image img {
-    max-width: 100%;
-    border-radius: 10px;
-}
-
 
 
 
 /*People ------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*Цвет фона */
 .body-people {
-    background: #0F0F0c;
+    background: #0f0f11;
     color: #ffffff;
 }
 /*Цвет фона */
@@ -576,12 +585,9 @@ z-index: 1;
     flex-direction: column;
     gap: 15px; 
 }
-.container-people-image img {
-    max-width: 1000px;
-    margin-top: 40px;
-}
-    .black {
-        color: black;
+    .white {
+        color: white;
+        margin-top: 10px;
     }
     .gray {
         background: url(images/names-of-glory/gray.gif) repeat center center;
@@ -608,21 +614,9 @@ z-index: 1;
         background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-    .yellow {
-        color: rgb(226, 226, 18);
-    }
-    .cyan {
-        color: rgb(79, 223, 223);
-    }
     .green {
         background: url(images/names-of-glory/green.gif);
         display: inline-block;
         padding: 1px 2px;
         color: rgb(124, 211, 73);
-    }
-    .green-simple {
-        color: rgb(124, 211, 73);
-    }
-    .purple {
-        color: 1;
     }
