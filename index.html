@@ -9,7 +9,7 @@
 <style>
 .parallax {
     max-width: 100%;
-    background-image: url('images/paralax.jpg');
+    background-image: url('images/paralax/paralax.jpg');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -19,6 +19,16 @@
     justify-content: center;
     position: relative;
     aspect-ratio: 21 / 9;
+}
+@media (max-width: 1920px) {
+    .parallax {
+        background-image: url('images/paralax/paralax-medium.jpg');
+    }
+}
+@media (max-width: 1280px) {
+    .parallax {
+        background-image: url('images/paralax/paralax-small.jpg');
+    }
 }
 /*Визуал страницы */
 .decor-btn {
@@ -132,7 +142,7 @@ body::before {
 	<div class="container-text-ivent reveal">
 		<h3>Ивенты</h3>
 		<p>Каждые 7 игровых дней спавнится сундук, в котором находятся тотем и золотые зачарованные яблоки. Правил нет.</p>
-		<p>Орды зомби, которые появляются вокруг игроков каждые пару дней (Это пиздец)</p>
+		<p>Орды зомби, которые появляются через некоторое время (Это пиздец)</p>
 	</div>
     <div class="connect reveal">
         <h2>Connect:</h2>
@@ -149,13 +159,13 @@ body::before {
 <div class="slider-container">
     <div class="slider">
         <div class="slide"><img src="images/slider/1.webp" alt=""></div>
-        <div class="slide"><img src="images/slider/2.jpg" alt=""></div>
-        <div class="slide"><img src="images/slider/3.webp" alt=""></div>
-        <div class="slide"><img src="images/slider/4.webp" alt=""></div>
-        <div class="slide"><img src="images/slider/5.webp" alt=""></div>
-        <div class="slide"><img src="images/slider/6.webp" alt=""></div>
-        <div class="slide"><img src="images/slider/7.webp" alt=""></div>
-        <div class="slide"><img src="images/slider/8.webp" alt=""></div>
+        <div class="slide"><img src="images/slider/2.jpg" loading="lazy" alt=""></div>
+        <div class="slide"><img src="images/slider/3.webp" loading="lazy" alt=""></div>
+        <div class="slide"><img src="images/slider/4.webp" loading="lazy" alt=""></div>
+        <div class="slide"><img src="images/slider/5.webp" loading="lazy" alt=""></div>
+        <div class="slide"><img src="images/slider/6.webp" loading="lazy" alt=""></div>
+        <div class="slide"><img src="images/slider/7.webp" loading="lazy" alt=""></div>
+        <div class="slide"><img src="images/slider/8.webp" loading="lazy" alt=""></div>
     </div>
 
     <button class="arrow left">&#10094;</button>
@@ -184,7 +194,7 @@ body::before {
 
 <div id="toast" class="toast">Текст скопирован!</div>
 
-<div class="gif img"><img src="images/evereast.gif" alt=""></div>
+<div class="gif img"><img src="images/evereast.gif" loading="lazy" alt=""></div>
 <div class="discord">
     <div class="discord-text">
         <p>Discord сервер Evereast</p>

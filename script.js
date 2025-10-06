@@ -1,7 +1,7 @@
 // Прогрузка preloader
 document.addEventListener("DOMContentLoaded", () => {
   const preloader = document.getElementById("preloader");
-  const images = document.querySelectorAll("img");
+  const images = document.querySelectorAll("img:not([loading='lazy'])");
   let loadedCount = 0;
   const totalImages = images.length;
 
@@ -20,9 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function incrementCounter() {
     loadedCount++;
-    if (loadedCount >= totalImages) {
-      hidePreloader();
-    }
+    if (loadedCount >= totalImages) hidePreloader();
   }
 
   function hidePreloader() {
@@ -30,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initReveals();
   }
 
+  //Lazy
   function initReveals() {
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
@@ -38,12 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
           obs.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.2
-    });
+    }, { threshold: 0.2 });
 
-    document.querySelectorAll(".reveal").forEach(el => {
-      observer.observe(el);
-    });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
   }
 });
